@@ -1,29 +1,44 @@
 {
-  "name": "voice-trigger",
+  "name": "lit-webpack",
   "version": "1.0.0",
   "private": "true",
-  "description": "a sample widget to trigger webhooks for telephony channels",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "serve": "webpack serve"
+    "build-bulma": "sass src/style.scss src/style.css",
+    "serve": "webpack serve",
+    "start": "npm run build-bulma serve"
   },
   "keywords": [],
-  "author": "David Finnegan",
+  "author": "Rajitha Kantheti",
   "license": "MIT",
   "devDependencies": {
+    "babel-loader": "^8.2.5",
+    "crypto-browserify": "^3.12.0",
     "css-loader": "^6.7.3",
-    "dotenv-webpack": "^8.0.1",
     "extract-loader": "^5.1.0",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "lit-scss-loader": "^2.0.1",
+    "os-browserify": "^0.3.0",
+    "querystring-es3": "^0.2.1",
     "sass": "^1.56.2",
     "sass-loader": "^13.2.0",
+    "stream-browserify": "^3.0.0",
+    "svg-inline-loader": "^0.8.2",
+    "svg-url-loader": "^8.0.0",
+    "url": "^0.11.3",
+    "util": "^0.12.5",
+    "vm-browserify": "^1.1.2",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
-    "lit": "^2.5.0"
+    "@babel/core": "^7.18.2",
+    "@wxcc-desktop/sdk": "^2.0.0",
+    "lit": "^2.5.0",
+    "webex": "^2.60.1"
   }
 }

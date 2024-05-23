@@ -1,1 +1,1 @@
-import './voice-trigger-workflows.js'
+import "./video-cc-widget.js";
