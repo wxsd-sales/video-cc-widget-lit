@@ -43,11 +43,21 @@ main {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
+#loading-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -50px;
+  width: 100px;
+  height: 100px;
+}
+
 #videos {
   position: relative;
   display: flex;
   flex-direction: column;
-  // width: 40%;
+  width: 85%;
 }
 .dropdown-item {
   width: auto !important;

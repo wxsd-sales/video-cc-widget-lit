@@ -9,7 +9,8 @@ export async function handleMeetingEvents(meeting, root) {
     root.querySelector("#self-view"),
     root.querySelector("#remote-view-video"),
     root.querySelector("#remote-view-audio"),
-    root.querySelector("#buttons-container")
+    root.querySelector("#buttons-container"),
+    root.querySelector("#loading-container")
   );
   bindButtonEvents(
     meeting,

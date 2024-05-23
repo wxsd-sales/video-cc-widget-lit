@@ -4,7 +4,8 @@ export function bindMeetingEvents(
   selfView,
   remoteViewVideo,
   remoteViewAudio,
-  buttonsContainer
+  buttonsContainer,
+  loadingContainer
 ) {
   meeting.on("error", (error) => handleError(error, "Meeting Error"));
 
@@ -23,6 +24,7 @@ export function bindMeetingEvents(
     if (element) {
       element.srcObject = media.stream;
       buttonsContainer.style.display = "flex";
+      loadingContainer.style.display = "none";
     }
   });
 

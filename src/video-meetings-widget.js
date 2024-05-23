@@ -4,8 +4,6 @@ import style from "./style.scss";
 import { initWebex, createMeeting } from "./meeting/webex.js";
 import { handleMeetingEvents } from "./events/event.js";
 import { videoControlsTemplate } from "./video-controls-template.js";
-import { Desktop } from "@wxcc-desktop/sdk";
-import { waitForEndTask } from "./contactCenterTasks/end-task.js";
 
 export class WXSDVideoCCWidget extends LitElement {
   static get styles() {
@@ -21,18 +19,6 @@ export class WXSDVideoCCWidget extends LitElement {
 
   async init() {
     try {
-      var videoDestinationSDK = null;
-      Desktop.config.init({
-        widgetName: "widgetName",
-        widgetProvider: "widgetProvider",
-      });
-      const accessTokenSDK = await Desktop.actions.getToken();
-      const currentTaskMap = await Desktop.actions.getTaskMap();
-      for (const iterator of currentTaskMap) {
-        videoDestinationSDK =
-          iterator[1].interaction.callAssociatedData.videoCallDestination.value;
-        console.log("videoDestinationSDK", videoDestinationSDK);
-      }
       this.webex = await initWebex(accessTokenSDK);
       this.meeting = await createMeeting(
         this.webex,

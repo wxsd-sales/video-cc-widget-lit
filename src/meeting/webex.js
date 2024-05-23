@@ -2,7 +2,7 @@
 import Webex from "webex";
 import { handleError } from "../utils/handle-error.js";
 
-export async function initWebex() {
+export async function initWebex(accessTokenSDK) {
   try {
     const webex = Webex.init({
       config: {
@@ -11,7 +11,7 @@ export async function initWebex() {
         },
       },
       credentials: {
-        access_token: "<YOUR_ACCESS_TOKEN>",
+        access_token: accessTokenSDK,
       },
     });
 
