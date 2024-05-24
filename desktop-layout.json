@@ -1,0 +1,157 @@
+{
+  "version": "0.0.6",
+  "appTitle": "Video Kiosk Support",
+  "logo": "https://wxccdemo.s3.us-west-1.amazonaws.com/allVerticals/webex.png",
+  "dragDropEnabled": false,
+  "notificationTimer": 8,
+  "maximumNotificationCount": 3,
+  "browserNotificationTimer": 8,
+  "wxmConfigured": false,
+  "desktopChatApp": {
+    "webexConfigured": false
+  },
+  "area": {
+    "headless": {
+      "id": "dw-headless",
+      "widgets": { "comp1": { "comp": "div" } },
+      "layout": { "areas": [["comp1"]], "size": { "cols": [1], "rows": [1] } }
+    },
+    "panel": {
+      "comp": "md-tabs",
+      "attributes": { "class": "widget-tabs" },
+      "children": [
+        {
+          "comp": "md-tab",
+          "attributes": { "slot": "tab", "class": "widget-pane-tab" },
+          "children": [
+            { "comp": "slot", "attributes": { "name": "SCREEN_POP_TAB" } }
+          ],
+          "visibility": "SCREEN_POP"
+        },
+        {
+          "comp": "md-tab-panel",
+          "attributes": { "slot": "panel", "class": "widget-pane" },
+          "children": [
+            { "comp": "slot", "attributes": { "name": "SCREEN_POP" } }
+          ],
+          "visibility": "SCREEN_POP"
+        },
+
+        {
+          "comp": "md-tab",
+          "attributes": { "slot": "tab", "class": "widget-pane-tab" },
+          "children": [{ "comp": "span", "textContent": "Video Kiosk Support" }]
+        },
+
+        {
+          "comp": "md-tab-panel",
+          "attributes": {
+            "slot": "panel",
+            "class": "widget-pane"
+          },
+          "children": [
+            {
+              "comp": "video-cc-widget",
+              "script": "https://wxsd-sales.github.io/video-cc-widget-lit/public/video-cc-widget.js",
+              "wrapper": {
+                "title": "Video Kiosk Support",
+                "maximizeAreaName": "app-maximize-area"
+              },
+              "attributes": {
+                "darkmode": "$STORE.app.darkMode"
+              },
+              "properties": {
+                "accessToken": "$STORE.auth.accessToken",
+                "outdialEp": "$STORE.agent.outDialEp",
+                "ani": "$STORE.agentContact.taskSelected.ani",
+                "callData": "$STORE.agentContact.taskSelected.callAssociatedData"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "navigation": [
+      {
+        "nav": {
+          "label": "Customer Experience Analytics",
+          "icon": "/app/images/wxm.bcd45cc3.svg",
+          "iconType": "other",
+          "navigateTo": "wxm-metrics",
+          "align": "top"
+        },
+        "page": {
+          "id": "wxm-metrics",
+          "widgets": {
+            "comp1": {
+              "comp": "agentx-wc-cloudcherry-widget",
+              "attributes": {
+                "metrics": true
+              },
+              "properties": {
+                "userModel": "$STORE.app.userModel",
+                "spaceId": "",
+                "metricsId": "",
+                "teamId": "$STORE.agent.teamName",
+                "isDarkMode": "$STORE.app.darkMode"
+              }
+            }
+          },
+          "layout": {
+            "areas": [["comp1"]],
+            "size": {
+              "cols": [1],
+              "rows": [1]
+            }
+          }
+        },
+        "visibility": "WXM_METRICS"
+      },
+
+      {
+        "nav": {
+          "label": "JDS System Widget",
+          "icon": "/app/images/wxm.bcd45cc3.svg",
+          "iconType": "other",
+          "navigateTo": "CustomNav6",
+          "align": "top"
+        },
+        "page": {
+          "id": "customNav6",
+          "widgets": {
+            "right": {
+              "comp": "customer-journey-widget",
+              "script": "https://cjaas.cisco.com/widgets/customer-journey-9.0.0.js",
+              "attributes": {
+                "base-url": "https://api-jds.prod-useast1.ciscowxdap.com",
+                "logs-on": "true",
+                "project-id": "650da7d7d91b095847052224",
+                "template-id": "journey-default-template",
+                "icon-data-path": "https://wxcc-widgets.s3.us-west-1.amazonaws.com/icons.json",
+                "limit": "50",
+                "time-frame": "All",
+                "live-stream": "true"
+              },
+              "properties": {
+                "interactionData": "$STORE.agentContact.taskSelected",
+                "bearerToken": "$STORE.auth.accessToken",
+                "organizationId": "952e87f4-5c49-4ca1-b285-ee0570c2498c"
+              },
+              "wrapper": {
+                "title": "Customer Journey Widget",
+                "maximizeAreaName": "app-maximize-area"
+              }
+            }
+          },
+          "layout": {
+            "areas": [["right"]],
+            "size": {
+              "cols": [1],
+              "rows": [1]
+            }
+          }
+        }
+      }
+    ]
+  }
+}

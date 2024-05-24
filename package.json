@@ -1,14 +1,11 @@
 {
   "name": "lit-webpack",
   "version": "1.0.0",
-  "private": "true",
-  "description": "",
+  "description": "Meetings widget embedded in WxCC using Lit",
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "build-bulma": "sass src/style.scss src/style.css",
-    "serve": "webpack serve",
-    "start": "npm run build-bulma serve"
+    "serve": "webpack serve"
   },
   "keywords": [],
   "author": "Rajitha Kantheti",
