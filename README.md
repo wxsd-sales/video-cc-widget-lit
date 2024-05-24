@@ -105,6 +105,8 @@ This component also provides standard video controls (mute, camera on/off, etc.)
 3.  Make sure the cloud storage URL is replaced in line 55 of desktop-layout.json file
 4.  Upload the desktop-layout.json file to your Webex contact center tenant and follow steps in Usage section.
 
+> **Note** - Bundled file for this project is hosted [here](https://wxsd-sales.github.io/video-cc-widget-lit/public/video-cc-widget.js)
+
 ## License
 
 <!-- MAKE SURE an MIT license is included in your Repository. If another license is needed, verify with management. This is for legal reasons.-->
