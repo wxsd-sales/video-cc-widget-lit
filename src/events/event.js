@@ -3,7 +3,12 @@ import { bindButtonEvents } from "./button-events.js";
 import { bindMeetingEvents } from "./meeting-events.js";
 import { joinMeeting } from "../meeting/join-meeting.js";
 
-export async function handleMeetingEvents(meeting, root) {
+export async function handleMeetingEvents(
+  meeting,
+  root,
+  Desktop,
+  interactionId
+) {
   bindMeetingEvents(
     meeting,
     root.querySelector("#self-view"),
@@ -14,6 +19,8 @@ export async function handleMeetingEvents(meeting, root) {
   );
   bindButtonEvents(
     meeting,
+    Desktop,
+    interactionId,
     root.querySelector("#hangup"),
     root.querySelector("#video-mute-off"),
     root.querySelector("#video-mute-on"),

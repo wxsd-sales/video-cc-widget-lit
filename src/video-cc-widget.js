@@ -22,6 +22,7 @@ export class WXSDVideoCCWidget extends LitElement {
   async init() {
     try {
       var videoDestinationSDK = null;
+      var interactionId = null;
       Desktop.config.init({
         widgetName: "widgetName",
         widgetProvider: "widgetProvider",
@@ -29,6 +30,8 @@ export class WXSDVideoCCWidget extends LitElement {
       const accessTokenSDK = await Desktop.actions.getToken();
       const currentTaskMap = await Desktop.actions.getTaskMap();
       for (const iterator of currentTaskMap) {
+        console.log("iterator", iterator[1]);
+        interactionId = iterator[1].interactionId;
         videoDestinationSDK =
           iterator[1].interaction.callAssociatedData.videoCallDestination.value;
         console.log("videoDestinationSDK", videoDestinationSDK);
@@ -39,7 +42,12 @@ export class WXSDVideoCCWidget extends LitElement {
         videoDestinationSDK,
         this.renderRoot
       );
-      await handleMeetingEvents(this.meeting, this.renderRoot);
+      await handleMeetingEvents(
+        this.meeting,
+        this.renderRoot,
+        Desktop,
+        interactionId
+      );
       await waitForEndTask(Desktop, this.meeting);
     } catch (error) {
       console.error("Initialization Error", error);

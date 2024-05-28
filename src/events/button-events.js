@@ -1,6 +1,8 @@
 import { enableDrag } from "../utils/self-view-drag";
 export function bindButtonEvents(
   meeting,
+  Desktop,
+  interactionId,
   hangup,
   videoMuteOff,
   videoMuteOn,
@@ -13,8 +15,11 @@ export function bindButtonEvents(
   dropdown,
   remoteView
 ) {
-  hangup.addEventListener("click", () => {
+  hangup.addEventListener("click", async () => {
     meeting.leave();
+    await Desktop.agentContact.end({
+      interactionId: interactionId,
+    });
   });
 
   videoMuteOff.addEventListener("click", () => {
